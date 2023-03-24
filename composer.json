@@ -1,8 +1,15 @@
 {
-  "name": "ernstabbehochschulejena/eahentrepreneurialprojects",
+  "name": "ernstabbehochschulejena/eahentrepreneurialprojects_indexer",
   "type": "typo3-cms-extension",
-  "description": "eahentrepreneurialprojects",
+  "description": "Indexer for ke_search which indexed eahentrepreneurialprojects records",
   "homepage": "https://github.com/eah-dev/eahentrepreneurialprojects_indexer",
+  "keywords": [
+    "TYPO3 CMS",
+    "eahjena",
+    "ke_search",
+    "eahentrepreneurialprojects",
+    "indexer"
+  ],
   "authors": [
     {
       "name": "Carsten Hoelbing",
@@ -12,31 +19,22 @@
   ],
   "license": "closed source",
   "support": {
-    "issues": "https://github.com/eah-dev/eahentrepreneurialprojects_indexer/issues"
+    "issues": "https://github.com/eah-dev/eahentrepreneurialprojects_indexer/issues",
+    "source": "https://github.com/eah-dev/eahentrepreneurialprojects_indexer"
   },
-  "keywords": ["TYPO3 CMS", "eahjena", "ke_search", "eahentrepreneurialprojects", "indexer"],
   "require": {
-    "php": ">=7.4.0",
-    "typo3/cms-core": "^10.4"
+    "typo3/cms-core": "^10.4",
+    "ernstabbehochschulejena/eahentrepreneurialprojects": "^1||@dev",
+    "tpwd/ke_search": "^4"
   },
   "autoload": {
     "psr-4": {
       "ErnstAbbeHochschuleJena\\EahentrepreneurialprojectsIndexer\\": "Classes"
     }
   },
-  "replace": {
-    "eahentrepreneurialprojects": "self.version",
-    "typo3-ter/eahentrepreneurialprojects": "self.version"
-  },
-  "config": {
-    "optimize-autoloader": true,
-    "vendor-dir": ".Build/vendor",
-    "bin-dir": ".Build/bin"
-  },
   "extra": {
     "typo3/cms": {
-      "extension-key": "eahentrepreneurialprojects"
+      "extension-key": "eahentrepreneurialprojects_indexer"
     }
   }
 }
-  

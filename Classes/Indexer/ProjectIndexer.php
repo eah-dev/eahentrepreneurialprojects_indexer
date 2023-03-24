@@ -7,7 +7,7 @@ declare(strict_types=1);
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
  *
- * (c) 2022 Carsten Hölbing <carsten.hoelbing@eah-jena.de>, Ernst-Abbe-Hochschule Jena
+ * (c) 2022 Carsten Hoelbing <carsten.hoelbing@eah-jena.de>, Ernst-Abbe-Hochschule Jena
  *
  */
 
@@ -46,7 +46,7 @@ class ProjectIndexer extends IndexerBase
         $customIndexer = array(
             'entrepreneurial projects (ext:eahentrepreneurialprojects)',
             ProjectIndexer::KEY,
-            'EXT:eahentrepreneurialprojects/Resources/Public/Icons/eah-logo.svg'
+            'EXT:eahentrepreneurialprojects_indexer/Resources/Public/Icons/Extension.svg'
         );
         $params['items'][] = $customIndexer;
     }
@@ -62,7 +62,7 @@ class ProjectIndexer extends IndexerBase
     {
         if ($indexerConfig['type'] == ProjectIndexer::KEY) {
             $table = 'tx_eahentrepreneurialprojects_domain_model_project';
-            
+
             // Doctrine DBAL using Connection Pool.
             /** @var Connection $connection */
             $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($table);
@@ -71,7 +71,7 @@ class ProjectIndexer extends IndexerBase
             if (!isset($indexerConfig['sysfolder'])|| empty($indexerConfig['sysfolder'])) {
                 throw new \Exception('No folder specified. Please set the folder which should be indexed in the indexer configuration!');
             }
-            
+
             // Handle restrictions.
             // Don't fetch hidden or deleted elements, but the elements
             // with frontend user group access restrictions or time (start / stop)
@@ -103,7 +103,7 @@ class ProjectIndexer extends IndexerBase
                 //$fullContent = $title . "\n" . $abstract;
 
                 // paramater for the link to the detail page
-                $params = '&tx_eahentrepreneurialprojects_cluster[project]=' . $record['uid']. 
+                $params = '&tx_eahentrepreneurialprojects_cluster[project]=' . $record['uid'].
                     // name of the controller
                     '&tx_eahentrepreneurialprojects_cluster[controller]=Project'.
                     // pluginname and action
@@ -145,7 +145,7 @@ class ProjectIndexer extends IndexerBase
                     false,                          // debug only?
                     $additionalFields               // additionalFields
                 );
-                
+
                 $counter++;
             }
 
